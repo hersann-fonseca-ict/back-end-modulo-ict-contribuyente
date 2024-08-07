@@ -1,0 +1,822 @@
+prompt --application/pages/page_00214
+begin
+--   Manifest
+--     PAGE: 00214
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2020.03.31'
+,p_release=>'20.1.0.00.13'
+,p_default_workspace_id=>5801312104779619
+,p_default_application_id=>100
+,p_default_id_offset=>149120778489414042
+,p_default_owner=>'DESA_SIT'
+);
+wwv_flow_api.create_page(
+ p_id=>214
+,p_user_interface_id=>wwv_flow_api.id(155231128641979405)
+,p_name=>'Formulario  Inscripcion Concesiones Golfo de Papagayo'
+,p_alias=>'FORMULARIO-INSCRIPCION-CONCESIONES-GOLFO-DE-PAPAGAYO'
+,p_step_title=>'Formulario  Inscripcion Concesiones Golfo de Papagayo'
+,p_autocomplete_on_off=>'OFF'
+,p_javascript_code=>'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_last_updated_by=>'KIMBERLYN.SOLANO'
+,p_last_upd_yyyymmddhh24miss=>'20221110100924'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(183054192343988672)
+,p_plug_name=>unistr('Inscripci\00F3n Concesiones Golfo de Papagayo')
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(155146499431979459)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'BODY'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(183030142626976901)
+,p_plug_name=>'Formulario  Inscripcion Concesiones Golfo de Papagayo'
+,p_parent_plug_id=>wwv_flow_api.id(183054192343988672)
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(155146499431979459)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'BODY'
+,p_query_type=>'TABLE'
+,p_query_table=>'MAESTRO_CONTRIBUYENTE'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(288492792448647675)
+,p_plug_name=>'Titulo'
+,p_parent_plug_id=>wwv_flow_api.id(183054192343988672)
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(155146499431979459)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'BODY'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<center><h2>Instituto Costarricense de Turismo</h2></center>',
+'<center><h3>Concesiones Golfo de Papagayo</h3></center>',
+''))
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(183039461022976919)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_button_name=>'SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(155208596203979425)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Guardar'
+,p_button_position=>'REGION_TEMPLATE_CHANGE'
+,p_button_condition=>'P214_ID_CONTRIBUYENTE'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(183038204824976917)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_button_name=>'CANCEL'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(155208596203979425)
+,p_button_image_alt=>'Cancelar'
+,p_button_position=>'REGION_TEMPLATE_CLOSE'
+,p_button_redirect_url=>'f?p=&APP_ID.:213:&SESSION.::&DEBUG.:::'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(183039791150976919)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(155208596203979425)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Crear'
+,p_button_position=>'REGION_TEMPLATE_CREATE'
+,p_button_condition=>'P214_ID_CONTRIBUYENTE'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(183039064818976918)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_button_name=>'DELETE'
+,p_button_action=>'REDIRECT_URL'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(155208596203979425)
+,p_button_image_alt=>'Eliminar'
+,p_button_position=>'REGION_TEMPLATE_DELETE'
+,p_button_redirect_url=>'javascript:apex.confirm(htmldb_delete_message,''DELETE'');'
+,p_button_execute_validations=>'N'
+,p_button_condition=>'P214_ID_CONTRIBUYENTE'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+);
+wwv_flow_api.create_page_branch(
+ p_id=>wwv_flow_api.id(183040122708976919)
+,p_branch_action=>'f?p=&APP_ID.:213:&SESSION.::&DEBUG.&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(159237799483083181)
+,p_name=>'P214_P214_TIPO_IDENT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>unistr('Tipo Identificaci\00F3n:')
+,p_source=>'ID_TIPO_IDENTIFICACION'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LOV_TIPO_IDENTIFICACION'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(159237907160083182)
+,p_name=>'P214_CEDULA_FISICA'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>unistr('Cedula F\00EDsica:')
+,p_source=>'CEDULA_FISICA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>20
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(159238019541083183)
+,p_name=>'P214_CEDULA_JURIDICA'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>unistr('Cedula Jur\00EDdica:')
+,p_source=>'CEDULA_JURIDICA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>20
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(159238867111083191)
+,p_name=>'P214_VAL_MC'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attribute_01=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(159238977765083192)
+,p_name=>'P214_MENSAJE'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_default=>'El contribuyente ya se encuentra inscrito...'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_tag_attributes=>'style="color:red;"'
+,p_grid_column=>5
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#'
+,p_attribute_01=>'Y'
+,p_attribute_02=>'VALUE'
+,p_attribute_04=>'Y'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183030546142976905)
+,p_name=>'P214_ID_CONTRIBUYENTE'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_default=>'SEQ_ID_CONTRIBUYENTE'
+,p_item_default_type=>'SEQUENCE'
+,p_source=>'ID_CONTRIBUYENTE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'Y'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183030902921976909)
+,p_name=>'P214_NOMBRE_ENTIDAD'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>'Nombre:'
+,p_source=>'NOMBRE_ENTIDAD'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>45
+,p_cMaxlength=>100
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183031360378976911)
+,p_name=>'P214_RAZON_SOCIAL'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>unistr('Raz\00F3n Social:')
+,p_source=>'RAZON_SOCIAL'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>45
+,p_cMaxlength=>80
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183031710476976911)
+,p_name=>'P214_ID_PROVINCIA_ENTIDAD'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>'Provincia:'
+,p_source=>'ID_PROVINCIA_ENTIDAD'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'SELECT DESCRIPCION, ID FROM PROVINCIAS@consulta_ictx'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183032136286976911)
+,p_name=>'P214_ID_CANTON_ENTIDAD'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>unistr('Cant\00F3n:')
+,p_source=>'ID_CANTON_ENTIDAD'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'SELECT DESCRIPCION, ID FROM CANTONES@consulta_ictx WHERE PROV_ID = :P214_ID_PROVINCIA_ENTIDAD'
+,p_lov_display_null=>'YES'
+,p_lov_cascade_parent_items=>'P214_ID_PROVINCIA_ENTIDAD'
+,p_ajax_optimize_refresh=>'Y'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183032547244976913)
+,p_name=>'P214_ID_DISTRITO_ENTIDAD'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>'Distrito:'
+,p_source=>'ID_DISTRITO_ENTIDAD'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT DESCRIPCION, ID ',
+'FROM DISTRITOS@consulta_ictx ',
+'WHERE PROV_ID = :P214_ID_PROVINCIA_ENTIDAD',
+'AND CANTON_ID = :P214_ID_CANTON_ENTIDAD'))
+,p_lov_display_null=>'YES'
+,p_lov_cascade_parent_items=>'P214_ID_PROVINCIA_ENTIDAD,P214_ID_CANTON_ENTIDAD'
+,p_ajax_optimize_refresh=>'Y'
+,p_cHeight=>1
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183032967452976914)
+,p_name=>'P214_CODIGO_ESTADO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>140
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>'Estado:'
+,p_source=>'CODIGO_ESTADO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LOV_ESTADO'
+,p_lov=>'.'||wwv_flow_api.id(164723649596609236)||'.'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183033321113976914)
+,p_name=>'P214_OFICIO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>'Oficio:'
+,p_source=>'OFICIO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>10
+,p_cMaxlength=>20
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183033717795976914)
+,p_name=>'P214_NUMERO_CONTRATO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>160
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>'Numero Contrato:'
+,p_source=>'NUMERO_CONTRATO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>10
+,p_cMaxlength=>20
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183034114503976914)
+,p_name=>'P214_FECHA_CONTRATO'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>'Fecha Contrato:'
+,p_format_mask=>'DD/MM/YYYY'
+,p_source=>'FECHA_CONTRATO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER'
+,p_cSize=>10
+,p_cMaxlength=>255
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_04=>'button'
+,p_attribute_05=>'N'
+,p_attribute_07=>'NONE'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183034486652976914)
+,p_name=>'P214_DESCRIPCION'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>180
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>unistr('Descripci\00F3n:')
+,p_source=>'DESCRIPCION'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXTAREA'
+,p_cSize=>45
+,p_cMaxlength=>800
+,p_cHeight=>4
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+,p_attribute_02=>'N'
+,p_attribute_03=>'N'
+,p_attribute_04=>'BOTH'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(183054290829988673)
+,p_name=>'P214_ID_TIPO_CONTRIBUYENTE'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_default=>'11'
+,p_prompt=>'Emisor de Pago:'
+,p_source=>'ID_TIPO_CONTRIBUYENTE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select descripcion, id_tipo_contribuyente',
+'from tipo_contribuyente',
+'where id_Tipo_contribuyente = 11'))
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(187768410019375158)
+,p_name=>'P214_USUARIO_SIT'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>190
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_source=>'USUARIO_SIT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(234056785913275661)
+,p_name=>'P214_ID_DEUDOR'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_item_source_plug_id=>wwv_flow_api.id(183030142626976901)
+,p_prompt=>unistr('C\00F3digo Tributario')
+,p_source=>'ID_DEUDOR'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_display_when=>'P214_ID_CONTRIBUYENTE'
+,p_display_when_type=>'ITEM_IS_NOT_NULL'
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(231639017153290887)
+,p_name=>'DAC_UPPER_ENTIDAD'
+,p_event_sequence=>10
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P214_NOMBRE_ENTIDAD'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(231639097468290888)
+,p_event_id=>wwv_flow_api.id(231639017153290887)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_JAVASCRIPT_CODE'
+,p_attribute_01=>'$("#P214_NOMBRE_ENTIDAD").val($("#P214_NOMBRE_ENTIDAD").val().toUpperCase());'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(231639212587290889)
+,p_name=>'DAC_UPPER_RAZON'
+,p_event_sequence=>20
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P214_RAZON_SOCIAL'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(231639305306290890)
+,p_event_id=>wwv_flow_api.id(231639212587290889)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_JAVASCRIPT_CODE'
+,p_attribute_01=>'$("#P214_RAZON_SOCIAL").val($("#P214_RAZON_SOCIAL").val().toUpperCase());'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(231639395866290891)
+,p_name=>'DAC_UPPER_DESCRIP'
+,p_event_sequence=>30
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P214_DESCRIPCION'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(231639485277290892)
+,p_event_id=>wwv_flow_api.id(231639395866290891)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_JAVASCRIPT_CODE'
+,p_attribute_01=>'$("#P214_DESCRIPCION").val($("#P214_DESCRIPCION").val().toUpperCase());'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(159238133206083184)
+,p_name=>'DAC_TIPO_IDENT'
+,p_event_sequence=>40
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P214_P214_TIPO_IDENT'
+,p_condition_element=>'P214_P214_TIPO_IDENT'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(159238213924083185)
+,p_event_id=>wwv_flow_api.id(159238133206083184)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P214_CEDULA_JURIDICA'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(159238456727083187)
+,p_event_id=>wwv_flow_api.id(159238133206083184)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P214_CEDULA_FISICA'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(159238291528083186)
+,p_event_id=>wwv_flow_api.id(159238133206083184)
+,p_event_result=>'TRUE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P214_CEDULA_FISICA'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(159238490508083188)
+,p_event_id=>wwv_flow_api.id(159238133206083184)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P214_CEDULA_JURIDICA'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(159238623103083189)
+,p_name=>'DAC_VAL_CEDF'
+,p_event_sequence=>50
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P214_CEDULA_FISICA'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(159238688162083190)
+,p_event_id=>wwv_flow_api.id(159238623103083189)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_EXECUTE_PLSQL_CODE'
+,p_attribute_01=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'vExiste VARCHAR2(1);',
+'BEGIN',
+':P214_VAL_MC:= PKG_MAESTRO_CONTRIBUYENTE.VALIDA_EXISTE_MC (:P214_CEDULA_FISICA);',
+'END;'))
+,p_attribute_02=>'P214_CEDULA_FISICA,P214_VAL_MC'
+,p_attribute_03=>'P214_VAL_MC'
+,p_attribute_04=>'N'
+,p_wait_for_result=>'Y'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(160404206314500443)
+,p_name=>'DAC_VAL_CEDJ'
+,p_event_sequence=>60
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P214_CEDULA_JURIDICA'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(160404282254500444)
+,p_event_id=>wwv_flow_api.id(160404206314500443)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_EXECUTE_PLSQL_CODE'
+,p_attribute_01=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'vExiste VARCHAR2(1);',
+'BEGIN',
+':P214_VAL_MC:= PKG_MAESTRO_CONTRIBUYENTE.VALIDA_EXISTE_MC (:P214_CEDULA_JURIDICA);',
+'END;'))
+,p_attribute_02=>'P214_CEDULA_JURIDICA,P214_VAL_MC'
+,p_attribute_03=>'P214_VAL_MC'
+,p_attribute_04=>'N'
+,p_wait_for_result=>'Y'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(160404424706500445)
+,p_name=>'DAC_MSJ'
+,p_event_sequence=>70
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P214_VAL_MC'
+,p_condition_element=>'P214_VAL_MC'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'S'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(160404523658500446)
+,p_event_id=>wwv_flow_api.id(160404424706500445)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P214_MENSAJE'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(160404740113500448)
+,p_event_id=>wwv_flow_api.id(160404424706500445)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'BUTTON'
+,p_affected_button_id=>wwv_flow_api.id(183039791150976919)
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(160404612506500447)
+,p_event_id=>wwv_flow_api.id(160404424706500445)
+,p_event_result=>'TRUE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'BUTTON'
+,p_affected_button_id=>wwv_flow_api.id(183039791150976919)
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(160404841229500449)
+,p_event_id=>wwv_flow_api.id(160404424706500445)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P214_MENSAJE'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(183041042286976921)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_api.id(183030142626976901)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Formulario  Inscripcion Concesiones Golfo de Papagayo'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(187045025754456579)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'PRC_GENERA_CODIGOS'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'vDeudor NUMBER;',
+'vFuente NUMBER;',
+'vMensaje_Retorno NUMBER;',
+'vparam_Retorno VARCHAR2(200);',
+'BEGIN',
+'IF :P214_ID_CONTRIBUYENTE IS NOT NULL THEN',
+'        P_ACTUALIZA_INTERFAZ_CONTRI( :APP_USER,:P214_ID_TIPO_CONTRIBUYENTE,:P214_NOMBRE_ENTIDAD,vDeudor,vFuente,vMensaje_Retorno,vparam_Retorno);',
+'        --Actualiza ID_DEUDOR y CODIGO FUENTE',
+'        UPDATE MAESTRO_CONTRIBUYENTE SET ID_DEUDOR =vDeudor,CODIGO_FUENTE = vFuente WHERE ID_CONTRIBUYENTE = :P214_ID_CONTRIBUYENTE;',
+'        COMMIT;',
+'        END IF;',
+'END;'))
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_api.id(183039791150976919)
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(159237321952083176)
+,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'PRC_ACT/INAC_CONTRIB'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DECLARE',
+'vMensaje_Retorno VARCHAR2(200);',
+'vRetorno boolean;',
+'vCedula VARCHAR2(20);',
+'BEGIN',
+'IF :P214_CODIGO_ESTADO <> ''AC'' THEN',
+'     --Se inserta el periodo de inactivacion ',
+'    PKG_MAESTRO_CONTRIBUYENTE.INSERTA_PERIODO_INACTIVACION (:P214_ID_CONTRIBUYENTE,:APP_USER,''I'');',
+'    --Inactivar en maestro_deudores',
+'    UPDATE MAESTRO_DEUDORES@CONSULTA_ICTX SET CODIGO_ESTADO = ''AI'' WHERE ID_DEUDOR = :P214_ID_DEUDOR;',
+'END IF;',
+'IF  :P214_CODIGO_ESTADO <> ''IA'' THEN',
+'    --Se inserta el periodo de inactivacion ',
+'    PKG_MAESTRO_CONTRIBUYENTE.INSERTA_PERIODO_INACTIVACION (:P214_ID_CONTRIBUYENTE,:APP_USER,''A'');',
+'    --Activar en maestro_deudores',
+'    UPDATE MAESTRO_DEUDORES@CONSULTA_ICTX SET CODIGO_ESTADO = ''AC'' WHERE ID_DEUDOR = :P214_ID_DEUDOR;',
+'',
+'END IF;',
+'    COMMIT;',
+'END;'))
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_api.id(183039461022976919)
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(183040670253976920)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_api.id(183030142626976901)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Formulario  Inscripcion Concesiones Golfo de Papagayo'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(187768301201375157)
+,p_process_sequence=>20
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'PRC_DATOS'
+,p_process_sql_clob=>':P214_USUARIO_SIT := :APP_USER;'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.component_end;
+end;
+/

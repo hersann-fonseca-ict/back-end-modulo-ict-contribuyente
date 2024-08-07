@@ -1,0 +1,311 @@
+prompt --application/pages/page_00143
+begin
+--   Manifest
+--     PAGE: 00143
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2020.03.31'
+,p_release=>'20.1.0.00.13'
+,p_default_workspace_id=>5801312104779619
+,p_default_application_id=>100
+,p_default_id_offset=>149120778489414042
+,p_default_owner=>'DESA_SIT'
+);
+wwv_flow_api.create_page(
+ p_id=>143
+,p_user_interface_id=>wwv_flow_api.id(155231128641979405)
+,p_name=>'143-Reporte tipo impuesto contribuyente'
+,p_alias=>'143-REPORTE-TIPO-IMPUESTO-CONTRIBUYENTE'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Tipo impuesto contribuyente'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_last_updated_by=>'KIMBERLYN.SOLANO'
+,p_last_upd_yyyymmddhh24miss=>'20220701113527'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(230666341706843924)
+,p_plug_name=>'143-Reporte tipo impuesto contribuyente'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(155144585020979460)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'BODY'
+,p_query_type=>'SQL'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select ROWID,',
+'       ID_TIPO_IMPUESTO,',
+'       ID_TIPO_CONTRIB,',
+'       CODIGO_ESTADO,',
+'       USUARIO_SIT',
+'  from TIPO_IMPUESTO_CONTRIB',
+'  where ID_TIPO_CONTRIB = :P143_ID_TIPO_CONTRIB'))
+,p_plug_source_type=>'NATIVE_IG'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_prn_page_header=>'143-Reporte tipo impuesto contribuyente'
+);
+wwv_flow_api.create_region_column(
+ p_id=>wwv_flow_api.id(230616960790483073)
+,p_name=>'APEX$ROW_ACTION'
+,p_item_type=>'NATIVE_ROW_ACTION'
+,p_display_sequence=>20
+);
+wwv_flow_api.create_region_column(
+ p_id=>wwv_flow_api.id(230617009168483074)
+,p_name=>'APEX$ROW_SELECTOR'
+,p_item_type=>'NATIVE_ROW_SELECTOR'
+,p_display_sequence=>10
+,p_attribute_01=>'Y'
+,p_attribute_02=>'Y'
+,p_attribute_03=>'N'
+);
+wwv_flow_api.create_region_column(
+ p_id=>wwv_flow_api.id(230667578321843907)
+,p_name=>'ROWID'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ROWID'
+,p_data_type=>'ROWID'
+,p_item_type=>'NATIVE_HIDDEN'
+,p_display_sequence=>30
+,p_attribute_01=>'Y'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>false
+,p_enable_pivot=>false
+,p_is_primary_key=>true
+,p_include_in_export=>false
+);
+wwv_flow_api.create_region_column(
+ p_id=>wwv_flow_api.id(230668166823843824)
+,p_name=>'ID_TIPO_IMPUESTO'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ID_TIPO_IMPUESTO'
+,p_data_type=>'NUMBER'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_SELECT_LIST'
+,p_heading=>'Tipo Impuesto'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>40
+,p_value_alignment=>'LEFT'
+,p_is_required=>true
+,p_lov_type=>'SHARED'
+,p_lov_id=>wwv_flow_api.id(161757268632851451)
+,p_lov_display_extra=>true
+,p_lov_display_null=>true
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_is_required=>false
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'LOV'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_enable_pivot=>false
+,p_is_primary_key=>false
+,p_duplicate_value=>true
+,p_include_in_export=>true
+);
+wwv_flow_api.create_region_column(
+ p_id=>wwv_flow_api.id(230668671888843824)
+,p_name=>'ID_TIPO_CONTRIB'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'ID_TIPO_CONTRIB'
+,p_data_type=>'NUMBER'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_display_sequence=>50
+,p_attribute_01=>'N'
+,p_filter_is_required=>false
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_pivot=>false
+,p_is_primary_key=>false
+,p_default_type=>'PLSQL_EXPRESSION'
+,p_default_expression=>':P143_ID_TIPO_CONTRIB'
+,p_duplicate_value=>true
+,p_include_in_export=>false
+);
+wwv_flow_api.create_region_column(
+ p_id=>wwv_flow_api.id(230669225118843823)
+,p_name=>'CODIGO_ESTADO'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'CODIGO_ESTADO'
+,p_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_SELECT_LIST'
+,p_heading=>'Estado'
+,p_heading_alignment=>'LEFT'
+,p_display_sequence=>60
+,p_value_alignment=>'LEFT'
+,p_is_required=>false
+,p_lov_type=>'SHARED'
+,p_lov_id=>wwv_flow_api.id(164723649596609236)
+,p_lov_display_extra=>true
+,p_lov_display_null=>true
+,p_enable_filter=>true
+,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
+,p_filter_is_required=>false
+,p_filter_text_case=>'MIXED'
+,p_filter_exact_match=>true
+,p_filter_lov_type=>'LOV'
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_hide=>true
+,p_enable_pivot=>false
+,p_is_primary_key=>false
+,p_default_type=>'STATIC'
+,p_default_expression=>'AC'
+,p_duplicate_value=>true
+,p_include_in_export=>true
+);
+wwv_flow_api.create_region_column(
+ p_id=>wwv_flow_api.id(230669872940843823)
+,p_name=>'USUARIO_SIT'
+,p_source_type=>'DB_COLUMN'
+,p_source_expression=>'USUARIO_SIT'
+,p_data_type=>'VARCHAR2'
+,p_is_query_only=>false
+,p_item_type=>'NATIVE_HIDDEN'
+,p_display_sequence=>70
+,p_attribute_01=>'N'
+,p_filter_is_required=>false
+,p_use_as_row_header=>false
+,p_enable_sort_group=>true
+,p_enable_control_break=>true
+,p_enable_pivot=>false
+,p_is_primary_key=>false
+,p_default_type=>'PLSQL_EXPRESSION'
+,p_default_expression=>':APP_USER'
+,p_duplicate_value=>true
+,p_include_in_export=>false
+);
+wwv_flow_api.create_interactive_grid(
+ p_id=>wwv_flow_api.id(230666807222843917)
+,p_internal_uid=>81546028733429875
+,p_is_editable=>true
+,p_edit_operations=>'i:u'
+,p_lost_update_check_type=>'VALUES'
+,p_add_row_if_empty=>true
+,p_submit_checked_rows=>false
+,p_lazy_loading=>false
+,p_requires_filter=>false
+,p_select_first_row=>true
+,p_fixed_row_height=>true
+,p_pagination_type=>'SCROLL'
+,p_show_total_row_count=>true
+,p_show_toolbar=>true
+,p_toolbar_buttons=>'SEARCH_COLUMN:SEARCH_FIELD:SAVE'
+,p_enable_save_public_report=>false
+,p_enable_subscriptions=>true
+,p_enable_flashback=>true
+,p_define_chart_view=>true
+,p_enable_download=>true
+,p_enable_mail_download=>true
+,p_fixed_header=>'REGION'
+,p_fixed_header_max_height=>300
+,p_show_icon_view=>false
+,p_show_detail_view=>false
+);
+wwv_flow_api.create_ig_report(
+ p_id=>wwv_flow_api.id(230667278037843915)
+,p_interactive_grid_id=>wwv_flow_api.id(230666807222843917)
+,p_type=>'PRIMARY'
+,p_default_view=>'GRID'
+,p_show_row_number=>false
+,p_settings_area_expanded=>true
+);
+wwv_flow_api.create_ig_report_view(
+ p_id=>wwv_flow_api.id(230667320358843913)
+,p_report_id=>wwv_flow_api.id(230667278037843915)
+,p_view_type=>'GRID'
+,p_srv_exclude_null_values=>false
+,p_srv_only_display_columns=>true
+,p_edit_mode=>false
+);
+wwv_flow_api.create_ig_report_column(
+ p_id=>wwv_flow_api.id(230667942343843905)
+,p_view_id=>wwv_flow_api.id(230667320358843913)
+,p_display_seq=>1
+,p_column_id=>wwv_flow_api.id(230667578321843907)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_api.create_ig_report_column(
+ p_id=>wwv_flow_api.id(230668388348843824)
+,p_view_id=>wwv_flow_api.id(230667320358843913)
+,p_display_seq=>2
+,p_column_id=>wwv_flow_api.id(230668166823843824)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_api.create_ig_report_column(
+ p_id=>wwv_flow_api.id(230669047544843823)
+,p_view_id=>wwv_flow_api.id(230667320358843913)
+,p_display_seq=>3
+,p_column_id=>wwv_flow_api.id(230668671888843824)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_api.create_ig_report_column(
+ p_id=>wwv_flow_api.id(230669647247843823)
+,p_view_id=>wwv_flow_api.id(230667320358843913)
+,p_display_seq=>4
+,p_column_id=>wwv_flow_api.id(230669225118843823)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_api.create_ig_report_column(
+ p_id=>wwv_flow_api.id(230670186433843823)
+,p_view_id=>wwv_flow_api.id(230667320358843913)
+,p_display_seq=>5
+,p_column_id=>wwv_flow_api.id(230669872940843823)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_api.create_ig_report_column(
+ p_id=>wwv_flow_api.id(230673010813822570)
+,p_view_id=>wwv_flow_api.id(230667320358843913)
+,p_display_seq=>0
+,p_column_id=>wwv_flow_api.id(230616960790483073)
+,p_is_visible=>true
+,p_is_frozen=>false
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(230616806226483072)
+,p_name=>'P143_ID_TIPO_CONTRIB'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(230666341706843924)
+,p_prompt=>'Tipo Contribuyente:'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LOV_TIPO_CONTRIBUYENTE'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT ID_TIPO_CONTRIBUYENTE, DESCRIPCION',
+'FROM TIPO_CONTRIBUYENTE',
+'WHERE CODIGO_ESTADO = ''AC'''))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(155207562166979428)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(230617106267483075)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_api.id(230666341706843924)
+,p_process_type=>'NATIVE_IG_DML'
+,p_process_name=>'143-Reporte tipo impuesto contribuyente - Save Interactive Grid Data'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.component_end;
+end;
+/

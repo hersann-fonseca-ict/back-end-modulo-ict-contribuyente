@@ -1,0 +1,279 @@
+prompt --application/pages/page_00147
+begin
+--   Manifest
+--     PAGE: 00147
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2020.03.31'
+,p_release=>'20.1.0.00.13'
+,p_default_workspace_id=>5801312104779619
+,p_default_application_id=>100
+,p_default_id_offset=>149120778489414042
+,p_default_owner=>'DESA_SIT'
+);
+wwv_flow_api.create_page(
+ p_id=>147
+,p_user_interface_id=>wwv_flow_api.id(155231128641979405)
+,p_name=>'147-Reporte Noticia Sit'
+,p_alias=>'147-REPORTE-NOTICIA-SIT'
+,p_step_title=>'Noticias SIT'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_last_updated_by=>'KIMBERLYN.SOLANO'
+,p_last_upd_yyyymmddhh24miss=>'20220810123150'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(235554790963488275)
+,p_plug_name=>'Principal'
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(155146499431979459)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'BODY'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(235554882451488276)
+,p_plug_name=>'Filtros'
+,p_parent_plug_id=>wwv_flow_api.id(235554790963488275)
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(155146499431979459)
+,p_plug_display_sequence=>30
+,p_plug_display_point=>'BODY'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_report_region(
+ p_id=>wwv_flow_api.id(247444963168652471)
+,p_name=>'Reporte Noticia SIT'
+,p_parent_plug_id=>wwv_flow_api.id(235554790963488275)
+,p_template=>wwv_flow_api.id(155146499431979459)
+,p_display_sequence=>40
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#'
+,p_display_point=>'BODY'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select ID_NOTICIA,',
+'       ID_TIPO_NOTICIA,',
+'       DESCRIPCION,',
+'       CODIGO_ESTADO,',
+'       USUARIO_SIT,',
+'       ORDEN',
+'  from NOTICIAS_SIT',
+'  where ID_TIPO_NOTICIA = NVL(:P147_TIPO_NOTICIA,ID_TIPO_NOTICIA)',
+'  and   CODIGO_ESTADO = NVL(:P147_CODIGO_ESTADO,CODIGO_ESTADO) '))
+,p_ajax_enabled=>'Y'
+,p_ajax_items_to_submit=>'P147_TIPO_NOTICIA,P147_CODIGO_ESTADO'
+,p_query_row_template=>wwv_flow_api.id(155172842909979447)
+,p_query_num_rows=>15
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_csv_output=>'N'
+,p_prn_output=>'N'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+);
+wwv_flow_api.create_report_columns(
+ p_id=>wwv_flow_api.id(247445376663652467)
+,p_query_column_id=>1
+,p_column_alias=>'ID_NOTICIA'
+,p_column_display_sequence=>1
+,p_column_heading=>'Editar'
+,p_use_as_row_header=>'N'
+,p_column_link=>'f?p=&APP_ID.:148:&SESSION.::&DEBUG.:RP:P148_ID_NOTICIA:\#ID_NOTICIA#\'
+,p_column_linktext=>'<span aria-label="Edit"><span class="fa fa-edit" aria-hidden="true" title="Edit"></span></span>'
+,p_column_alignment=>'CENTER'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_api.create_report_columns(
+ p_id=>wwv_flow_api.id(247445762203652465)
+,p_query_column_id=>2
+,p_column_alias=>'ID_TIPO_NOTICIA'
+,p_column_display_sequence=>2
+,p_column_heading=>'Tipo Noticia'
+,p_use_as_row_header=>'N'
+,p_column_alignment=>'CENTER'
+,p_disable_sort_column=>'N'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_api.id(247453097168628902)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_api.create_report_columns(
+ p_id=>wwv_flow_api.id(247446168855652465)
+,p_query_column_id=>3
+,p_column_alias=>'DESCRIPCION'
+,p_column_display_sequence=>3
+,p_column_heading=>'Descripcion'
+,p_heading_alignment=>'LEFT'
+,p_disable_sort_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_api.create_report_columns(
+ p_id=>wwv_flow_api.id(247446542798652465)
+,p_query_column_id=>4
+,p_column_alias=>'CODIGO_ESTADO'
+,p_column_display_sequence=>5
+,p_column_heading=>'Estado'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_disable_sort_column=>'N'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_api.id(164723649596609236)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_api.create_report_columns(
+ p_id=>wwv_flow_api.id(247446902845652465)
+,p_query_column_id=>5
+,p_column_alias=>'USUARIO_SIT'
+,p_column_display_sequence=>6
+,p_column_heading=>'Usuario'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_api.create_report_columns(
+ p_id=>wwv_flow_api.id(235555616560488283)
+,p_query_column_id=>6
+,p_column_alias=>'ORDEN'
+,p_column_display_sequence=>4
+,p_column_heading=>'Orden'
+,p_use_as_row_header=>'N'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(1278619534368024419)
+,p_plug_name=>'Titulo'
+,p_parent_plug_id=>wwv_flow_api.id(235554790963488275)
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(155146499431979459)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'BODY'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<center><h2>Instituto Costarricense de Turismo</h2></center>',
+'<center><h3>Noticias SIT</h3></center>'))
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(247449044715652452)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_api.id(1278619534368024419)
+,p_button_name=>'CREATE'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(155208596203979425)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Crear'
+,p_button_position=>'BELOW_BOX'
+,p_button_redirect_url=>'f?p=&APP_ID.:148:&SESSION.::&DEBUG.:148'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(235555074872488277)
+,p_name=>'P147_TIPO_NOTICIA'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(235554882451488276)
+,p_prompt=>'Tipo Noticia:'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LOV_TIPO_NOTICIA'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(235555368924488280)
+,p_name=>'P147_CODIGO_ESTADO'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_api.id(235554882451488276)
+,p_prompt=>'Estado:'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LOV_ESTADO'
+,p_lov=>'.'||wwv_flow_api.id(164723649596609236)||'.'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_api.id(155207301425979428)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(247448044500652453)
+,p_name=>'Edit Report - Dialog Closed'
+,p_event_sequence=>10
+,p_triggering_element_type=>'REGION'
+,p_triggering_region_id=>wwv_flow_api.id(235554790963488275)
+,p_bind_type=>'bind'
+,p_bind_event_type=>'apexafterclosedialog'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(247448572393652452)
+,p_event_id=>wwv_flow_api.id(247448044500652453)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_api.id(247444963168652471)
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(235555106197488278)
+,p_name=>'DAC_REFRESH_TIPO_N'
+,p_event_sequence=>20
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P147_TIPO_NOTICIA'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(235555207439488279)
+,p_event_id=>wwv_flow_api.id(235555106197488278)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_api.id(247444963168652471)
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(235555379605488281)
+,p_name=>'DAC_REFRESH_ESTADO'
+,p_event_sequence=>30
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P147_CODIGO_ESTADO'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(235555492648488282)
+,p_event_id=>wwv_flow_api.id(235555379605488281)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_REFRESH'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_api.id(247444963168652471)
+);
+wwv_flow_api.component_end;
+end;
+/
